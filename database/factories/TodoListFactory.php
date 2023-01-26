@@ -17,7 +17,13 @@ class TodoListFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->sentence(3),
+            'description' => $this->faker->sentence,
+            'due_date' => $this->faker->dateTimeBetween(
+                now(),
+                now()->addHour()
+            ),
+            'priority' => $this->faker->numberBetween(1,3),
         ];
     }
 }
