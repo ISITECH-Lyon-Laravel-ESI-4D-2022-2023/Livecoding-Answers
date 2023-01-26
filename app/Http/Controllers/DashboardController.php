@@ -15,7 +15,10 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
-        $todoLists = TodoList::query()->get();
+        $todoLists = TodoList::query()
+            ->orderByDesc('priority')
+            ->orderBy('due_date')
+            ->get();
 
         return view('dashboard', [
             'todoLists' => $todoLists
