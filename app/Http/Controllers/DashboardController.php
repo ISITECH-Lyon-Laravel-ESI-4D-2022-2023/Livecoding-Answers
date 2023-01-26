@@ -15,6 +15,8 @@ class DashboardController extends Controller
      */
     public function __invoke(Request $request)
     {
+        return view('dashboard');
+
         $todoLists = TodoList::query()->get();
         return response()->json($todoLists);
     }
