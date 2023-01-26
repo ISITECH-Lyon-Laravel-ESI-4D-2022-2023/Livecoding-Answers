@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->boolean('is_done');
+            $table->foreignId('todo_list_id')
+                ->constrained()
+                ->restrictOnDelete();
             $table->timestamps();
         });
     }
