@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TodoListController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,3 +16,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', DashboardController::class)->name('dashboard');
+
+Route::get('/todo-lists', [TodoListController::class, 'index'])->name('todo-lists.index');
+Route::get('/todo-lists/create', [TodoListController::class, 'create'])->name('todo-lists.create');
+Route::post('/todo-lists/create', [TodoListController::class, 'store'])->name('todo-lists.store');
+Route::get('/todo-lists/{todo-list}', [TodoListController::class, 'show'])->name('todo-lists.show');
+Route::get('/todo-lists/{todo-list}/edit', [TodoListController::class, 'edit'])->name('todo-lists.edit');
+Route::match(['PUT', 'PATCH'], '/todo-lists/{todo-list}', [TodoListController::class, 'update'])->name('todo-lists.update');
+Route::delete('/todo-lists/{todo-list}', [TodoListController::class, 'destroy'])->name('todo-lists.destroy');
