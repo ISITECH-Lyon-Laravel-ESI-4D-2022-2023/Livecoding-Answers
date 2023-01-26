@@ -15,4 +15,9 @@ class TodoList extends Model
         'due_date',
         'priority',
     ];
+
+    public function tasks()
+    {
+        return $this->hasMany(Task::class);
+    }
 }
