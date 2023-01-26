@@ -34,18 +34,20 @@
                         </thead>
                         <tbody class="divide-y divide-gray-200 bg-white">
 
+                        @foreach($todoLists as $todoList)
                         <tr>
                             <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-                                <div class="text-gray-900">name</div>
-                                <div class="text-gray-500">description</div>
+                                <div class="text-gray-900">{{ $todoList->name }}</div>
+                                <div class="text-gray-500">{{ $todoList->description }}</div>
                             </td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">priority</td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">due_date</td>
-                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">created_at</td>
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $todoList->priority }}</td>
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $todoList->due_date }}</td>
+                            <td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $todoList->created_at }}</td>
                             <td class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-6">
                                 <a href="#" class="text-indigo-600 hover:text-indigo-900">Edit</a>
                             </td>
                         </tr>
+                        @endforeach
 
                         </tbody>
                     </table>
